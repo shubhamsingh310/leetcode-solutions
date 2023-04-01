@@ -20,7 +20,8 @@ public:
                 s=mid+1;
             }
             mid=s+(e-s)/2;
-        }return -1;
+        }
+        return -1;
     }
 };
     
