@@ -3,6 +3,7 @@
 using namespace std;
 
 // } Driver Code Ends
+
 class Solution {
   public:
  
@@ -15,10 +16,10 @@ class Solution {
        
        q.push(0);
         
-        Vi[0] = 1;
+        Vi[0] = 1;    
         
         while(!q.empty()){
-            int x= q.front();
+            int x = q.front();
             q.pop();
             ans.push_back(x);
         
