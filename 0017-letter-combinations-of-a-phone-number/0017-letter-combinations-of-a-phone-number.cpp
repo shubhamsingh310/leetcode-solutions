@@ -7,6 +7,7 @@ class Solution {
             ans.push_back(output);
             return;
         }
+        
         int number = digit[index]-'0';
         string value = mapping[number];
         
