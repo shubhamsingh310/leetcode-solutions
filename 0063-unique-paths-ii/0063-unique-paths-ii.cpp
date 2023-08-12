@@ -15,15 +15,12 @@ public:
         if(i == m-1 && j == n-1)
             return 1;
         
-        //Why we are not making [i][j] visited ?
-        //Because robot can only move down or right so it will never visit any visited cell again
-        //int temp = obstacleGrid[i][j];
-        //obstacleGrid[i][j] = -1;
+        
         
         int right = solve(obstacleGrid, i, j+1);
         int down  = solve(obstacleGrid, i+1, j);
         
-        //obstacleGrid[i][j] = temp;
+        
         
         return t[i][j] = right + down;
         
