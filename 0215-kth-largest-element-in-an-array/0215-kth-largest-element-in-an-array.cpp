@@ -5,7 +5,6 @@ public:
     priority_queue<int> pq (nums.begin(),nums.end()) ;
     
     for(int i = 0; i<k-1; i++){
-        
         pq.pop();
         
     }
