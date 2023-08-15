@@ -1,58 +1,39 @@
-class Solution {
-private: 
-    bool valid(char ch)
+
+class Solution
+{
+    bool isEqual(int l,int r)
     {
-        if( (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9'))
-        {
-            return 1;
-        }
-        return 0;
+        if(l==r || (l>='A' && l<='Z' && r==l+32)
+          || (r>='A' && r<='Z' && l==r+32))
+            return true;
+        
+        return false;
     }
     
-    char toLowerCase(char ch) {
-    if( (ch >='a' && ch <='z') || (ch >='0' && ch <='9') )
-        return ch;
-    else
-    {
-        char temp = ch - 'A' + 'a';
-        return temp;
-    }
-}
-
-bool checkPalindrome(string a) {
-    int s = 0;
-    int e = a.length()-1;
-
-    while(s<=e) {
-        if(a[s] != a[e])
-        {
-            return 0;       
-        }
-        else{
-            s++;
-            e--;
-        }
-    }
-    return 1;
-}
 public:
     bool isPalindrome(string s) {
+        int r = s.size();
+        if(r==0)
+            return true;
         
-        //Remove all non-alphanumeric character
-        string temp = "";
-        
-        for(int j=0; j<s.length(); j++) {   
-            if(valid(s[j])) {
-                temp.push_back(s[j]);
-            }
+        vector<int> arr;
+        int i=0;
+        while(i<r)
+        {
+            if((s[i]>='A' && s[i]<='Z') || (s[i]>='a' && s[i]<='z') || (s[i]>='0' && s[i]<='9'))
+                arr.push_back(s[i]);
+            i+=1;
         }
         
-        //convert all uppercase letter into lowercase
-        for(int j=0; j<temp.length(); j++) { 
-            temp[j] = toLowerCase(temp[j]);
+        int l=0;
+        r = arr.size();
+        while(l<r)
+        {
+            if(isEqual(arr[l],arr[r-1])==false)
+                return false;
+            l++;
+            r--;
         }
-        
-        //check palindrome or not
-        return checkPalindrome(temp);
+        return true;
     }
 };
