@@ -26,6 +26,7 @@ public:
             if(i >= k-1) //Only when the window size first gets equal or greater than k
                 result.push_back(nums[deq.front()]); //front will have the max element (dequeue is maintained in descending order)
         }
+        
         return result;
     }
 };
