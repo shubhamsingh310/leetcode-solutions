@@ -1,5 +1,6 @@
 class Solution {
 public:
+    
     int maxArea(vector<int>& height) {
         
     int n = height.size();
