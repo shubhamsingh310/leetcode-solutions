@@ -27,6 +27,7 @@ public:
             P p = que.front();
             que.pop();
             
+            
             for(auto &dir : directions) {
                 int i = p.first  + dir[0];
                 int j = p.second + dir[1];
