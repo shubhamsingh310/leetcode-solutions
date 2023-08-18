@@ -1,6 +1,7 @@
 
 class Solution {
 public:
+    
     int maximalNetworkRank(int n, vector<vector<int>>& roads) {
      vector<int> degree(n, 0);
         set<pair<int, int>> road_set;
