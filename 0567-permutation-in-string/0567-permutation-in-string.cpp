@@ -11,7 +11,7 @@ class Solution {
     
 public:
     bool checkInclusion(string s1, string s2) {
-        //character count array
+        
         int count1[26]= {0};
         
         for(int i=0; i<s1.length(); i++){
@@ -19,13 +19,13 @@ public:
             count1[index]++;
         }
     
-    //traverse s2 string in window of size s1 length and compare
+   
     
     int i = 0 ;
     int windowSize = s1.length();
     int count2[26] = {0};
     
-    //running for first window
+   
     while(i<windowSize && i<s2.length()){
         int index = s2[i] - 'a';
         count2[index]++;
@@ -34,7 +34,7 @@ public:
         if(checkEqual(count1,count2))
             return 1;
         
-        //process window further
+        
         while(i<s2.length()){
             char newChar = s2[i];
             int index = newChar - 'a';
