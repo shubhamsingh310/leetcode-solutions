@@ -12,7 +12,6 @@ public:
             s.push_back(ch);
             
             columnNumber /= 26;
-            
         }
         
         reverse(begin(s), end(s));
@@ -20,4 +19,3 @@ public:
         
     }
 };
-
