@@ -6,9 +6,6 @@ public:
     for(int i=0;i< s.length();++i){
 
         char ch = s[i];
-
-        //if operning bracket -> stack push()
-        // if closing bracket -> stacktop check and pop
         if (ch == '{' || ch == '[' || ch == '(') {
           st.push(ch);
         }
@@ -31,11 +28,7 @@ public:
             }
         }
     }
-    if(st.empty())
-    return true;
-
-   else
-    return false;
+        return st.empty();
         
     }
 };
