@@ -28,7 +28,6 @@ public:
     bool canCross(vector<int>& stones) {
        n = stones.size();
 
-    
        if(stones[1]!=1){
            return false;
        }
