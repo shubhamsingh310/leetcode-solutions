@@ -1,38 +1,37 @@
 class MyStack {
 public:
- 
-    queue<int> q;
-    int peek = -1;  
+    int peek=-1;
+    queue<int>q;
+    
     
     MyStack() {
-       
+        
     }
+    
     void push(int x) {
-         peek = x;
-        q.push(x);
+       peek = x;
+       q.push(x);
     }
-
     
-    // 2 3 4 6 7 9 
-     int    pop() {
-       int n = q.size();
-       n-=1; 
-       while(n--){
-          peek = q.front();     
-           q.push(peek);
-           q.pop();
-       } 
+    int pop() {
+        int n = q.size();
+        n = n-1;
         
-       int ret = q.front();    
-        q.pop();                
-        
+        // 2 3 6 8 9 6
+        while(n--){
+            peek = q.front();
+            q.push(peek);
+            q.pop();
+        }
+        int ret = q.front();
+        q.pop();
         return ret;
+    }   
+        
+    int top() {
+        return peek;
     }
     
-    int top() {
-     return peek ;
-        
-    }
     bool empty() {
         return q.size()==0;
     }
@@ -45,4 +44,4 @@ public:
  * int param_2 = obj->pop();
  * int param_3 = obj->top();
  * bool param_4 = obj->empty();
- */
+  */  
