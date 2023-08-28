@@ -12,7 +12,9 @@ public:
         q.push(x);
     }
 
-    int pop() {
+    
+    // 2 3 4 6 7 9 
+     int    pop() {
        int n = q.size();
        n-=1; 
        while(n--){
