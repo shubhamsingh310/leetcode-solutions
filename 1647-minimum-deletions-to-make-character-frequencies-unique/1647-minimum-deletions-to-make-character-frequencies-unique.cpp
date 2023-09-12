@@ -9,7 +9,8 @@ public:
             freq[it - 'a']++;
         }
         for(auto it : freq){
-            if(it == 0) continue;   // for no occurence of an alphabet
+            if(it == 0) 
+                continue;   // for no occurence of an alphabet
             if(st.find(it) != st.end()){   // if this freq has occured before
                 while(st.find(it) != st.end() && it > 0){  // until it is there or doesn't boil down to zero
                     it--;
