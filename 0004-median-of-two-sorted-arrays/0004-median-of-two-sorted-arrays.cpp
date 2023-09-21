@@ -2,11 +2,7 @@ class Solution {
 public:
     double findMedianSortedArrays(vector<int>& arr1, vector<int>& arr2 ) 
     {
-        
-        
-        
-        
-        
+  
         int n = arr1.size() ; 
         int m = arr2.size() ;
         
@@ -20,9 +16,7 @@ public:
             
             return  double ( arr2 [ m / 2 ]  + arr2 [ m / 2 - 1 ] )/ 2.0 ;
         }
-        
-        
-        
+   
         if ( m == 0 )
         {
             if ( n & 1 )
@@ -38,16 +32,13 @@ public:
             arr2 = temp ; 
             swap ( n , m ) ;
         }
-        
-        
+     
         int low = 0 ; 
         int high  = n   ;
-        
-      
+         
         while ( low <= high )
         {
-            
-            
+          
             int i = low + ( high - low ) / 2 ; 
             int j = ( m + n + 1 ) / 2 - i ; 
             
@@ -57,9 +48,7 @@ public:
             int imini = i == n ? INT_MAX : arr1 [ i ] ; 
             int jmini = j == m ? INT_MAX : arr2 [ j ] ;
             
-            
-    
- 
+  
             if ( jmaxi  <= imini and imaxi <= jmini )
             {
                 if ( (m + n) & 1 )
@@ -75,8 +64,7 @@ public:
             
         
         }
-        
-        
+     
         return 000.00 ; 
         
     }
