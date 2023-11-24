@@ -1,33 +1,35 @@
 class Solution {
 public:
-    long long getHoursToEatAll(vector<int>&piles, int bananasPerHour)
-    {
-        long long totalHours = 0;
-        for (int i = 0; i < piles.size(); i++)
-        {
-            int hoursToEatPile = ceil(piles[i] / (double)bananasPerHour);
-            totalHours += hoursToEatPile;
-        }
-        return totalHours;
-    }
-    int minEatingSpeed(vector<int>& piles, int targetHours)
-    {
-        int low = 1, high = *(max_element(piles.begin(), piles.end()));
-        int ans = -1;
+    
+    bool canEatAll(vector<int>piles, int mid, int h){
+        int actualHours = 0;
         
-        while(low <= high)
-        {
-            int mid = low + (high - low) / 2;
-            long long hoursToEatAll = getHoursToEatAll(piles, mid);
+        for(int &x : piles){
+            actualHours+= x/mid;
             
-            if (hoursToEatAll <= targetHours)
-            {
-                ans = mid; 
-                high = mid - 1;
+            if(x%mid != 0){
+                actualHours++;
             }
-            else low = mid + 1;
         }
-       
-        return ans;
+        
+        return actualHours <= h;
+    }
+    
+    int minEatingSpeed(vector<int>& piles, int h) {
+        int l = 1;
+        int r = *max_element(begin(piles), end(piles));
+        
+        while(l<r){
+            
+            int mid = l + (r-l)/2;
+            
+            if(canEatAll(piles,mid,h)){
+                r = mid;
+            }
+            else{
+                l = mid + 1;
+            }
+        }
+        return l;
     }
 };
