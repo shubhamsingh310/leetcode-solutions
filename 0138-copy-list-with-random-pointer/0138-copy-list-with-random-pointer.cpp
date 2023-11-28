@@ -16,24 +16,37 @@ public:
 class Solution {
 public:
     Node* copyRandomList(Node* head) {
-        if(head == NULL)return NULL;
-        for(Node *curr = head; curr != NULL; curr = curr->next){
-            Node *newNode = new Node(curr->val);
-            Node *next = curr->next;
-            curr->next = newNode;
-            curr = newNode;
-            newNode->next = next;
+        if(!head)
+            return NULL;
+        map<Node*, Node*> mp;
+        Node* curr = head;
+        Node* prev = NULL;
+        Node* newHead = NULL;
+        while(curr) {
+            Node* temp = new Node(curr->val);
+            mp[curr] = temp;
+            if(newHead == NULL) {
+                newHead = temp;
+                prev = newHead;
+            } else {
+                prev->next = temp;
+                prev = temp;
+            }
+            curr = curr->next;
         }
-        for(Node *curr = head; curr != NULL; curr = curr->next->next){
-            Node *copy = curr->next;
-            copy->random = (curr->random == NULL) ?  NULL : curr->random->next;
+        
+        curr = head;
+        Node* newCurr = newHead;
+        while(curr) {
+            if(curr->random == NULL) {
+                newCurr->random = NULL;
+            } else {
+                newCurr->random = mp[curr->random];
+            }
+            
+            newCurr = newCurr->next;
+            curr = curr->next;
         }
-        Node *dummyHead = new Node(0), *currCopyPtr = dummyHead;
-        for(Node *curr = head; curr != NULL; curr = curr->next){
-              currCopyPtr->next = curr->next;
-              currCopyPtr = curr->next;
-              curr->next = currCopyPtr->next;
-        }
-        return dummyHead->next;
+        return newHead;
     }
 };
