@@ -1,3 +1,5 @@
+
+//Approach 1
 class Solution {
 public:
     int maxProductDifference(vector<int>& nums) {
