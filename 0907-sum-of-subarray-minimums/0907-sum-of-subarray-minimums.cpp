@@ -55,12 +55,7 @@ public:
             
             ll d2 = NSR[i] - i; //distance to nearest smaller to right from i
             
-            /*
-                we have d1 numbers in the left and d2 numbers in the right
-                i.e. We have d1 options to start from the left of arr[i] 
-                and d2 options to end in the right of arr[i]
-                so the total options to start and end are d1*d2
-            */
+           
             ll total_ways_for_i_min = d1*d2;
             ll sum_i_in_total_ways  = arr[i] * (total_ways_for_i_min);
             
